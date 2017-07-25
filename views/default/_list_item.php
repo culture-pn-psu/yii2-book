@@ -17,7 +17,7 @@ use yii\helpers\StringHelper;
                 <?=StringHelper::truncate(strip_tags($model->detail),80);?>
             </small>
             <?php if(isset($model->number)):?>
-               <br/><small class='text-muted'><?=Yii::t('culture','{number} Pages',['number'=>$model->number]);?></small>
+               <br/><small class='text-muted'><?=Yii::t('culture/book','{number} Pages',['number'=>$model->number]);?></small>
             <?php endif;?>
             <hr style="margin: 5px;"/>
             <div style="height: 40px;">

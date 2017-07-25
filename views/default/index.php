@@ -9,6 +9,7 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('culture/book', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
+echo Yii::$app->language;
 ?>
 <div class="book-index">
 
