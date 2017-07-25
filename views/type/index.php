@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel culturePnPsu\book\models\BookTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('book', 'Book Types');
+$this->title = Yii::t('culture/book', 'Book Types');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="book-type-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('book', 'Create Book Type'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('culture/book', 'Create Book Type'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,

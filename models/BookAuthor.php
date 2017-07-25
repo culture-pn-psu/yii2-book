@@ -44,12 +44,12 @@ class BookAuthor extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('book', 'ID'),
-            'name' => Yii::t('book', 'Name'),
-            'created_at' => Yii::t('book', 'Created At'),
-            'created_by' => Yii::t('book', 'Created By'),
-            'updated_at' => Yii::t('book', 'Updated At'),
-            'updated_by' => Yii::t('book', 'Updated By'),
+            'id' => Yii::t('culture/book', 'ID'),
+            'name' => Yii::t('culture/book', 'Name'),
+            'created_at' => Yii::t('culture/book', 'Created At'),
+            'created_by' => Yii::t('culture/book', 'Created By'),
+            'updated_at' => Yii::t('culture/book', 'Updated At'),
+            'updated_by' => Yii::t('culture/book', 'Updated By'),
         ];
     }
 

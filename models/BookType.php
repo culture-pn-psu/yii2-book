@@ -42,9 +42,9 @@ class BookType extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('book', 'ID'),
-            'title' => Yii::t('book', 'Title'),
-            'kind' => Yii::t('book', 'Kind'),
+            'id' => Yii::t('culture/book', 'ID'),
+            'title' => Yii::t('culture/book', 'Title'),
+            'kind' => Yii::t('culture/book', 'Kind'),
         ];
     }
 

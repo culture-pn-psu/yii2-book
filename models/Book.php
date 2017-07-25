@@ -83,19 +83,19 @@ class Book extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('book', 'ID'),
-            'title' => Yii::t('book', 'Title'),
-            'detail' => Yii::t('book', 'Detail'),
-            'author' => Yii::t('book', 'Author'),
-            'book_type_id' => Yii::t('book', 'Book Type ID'),
-            'path' => Yii::t('book', 'Path'),
-            'image' => Yii::t('book', 'Image'),
-            'status' => Yii::t('book', 'Status'),
-            //'create_date' => Yii::t('book', 'Create Date'),
-            'created_at' => Yii::t('book', 'Created At'),
-            'created_by' => Yii::t('book', 'Created By'),
-            'updated_at' => Yii::t('book', 'Updated At'),
-            'updated_by' => Yii::t('book', 'Updated By'),
+            'id' => Yii::t('culture/book', 'ID'),
+            'title' => Yii::t('culture/book', 'Title'),
+            'detail' => Yii::t('culture/book', 'Detail'),
+            'author' => Yii::t('culture/book', 'Author'),
+            'book_type_id' => Yii::t('culture/book', 'Book Type ID'),
+            'path' => Yii::t('culture/book', 'Path'),
+            'image' => Yii::t('culture/book', 'Image'),
+            'status' => Yii::t('culture/book', 'Status'),
+            //'create_date' => Yii::t('culture/book', 'Create Date'),
+            'created_at' => Yii::t('culture/book', 'Created At'),
+            'created_by' => Yii::t('culture/book', 'Created By'),
+            'updated_at' => Yii::t('culture/book', 'Updated At'),
+            'updated_by' => Yii::t('culture/book', 'Updated By'),
         ];
     }
 
