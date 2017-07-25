@@ -3,6 +3,7 @@
 namespace culturePnPsu\book\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "book_type".
@@ -53,5 +54,9 @@ class BookType extends \yii\db\ActiveRecord
     public function getBooks()
     {
         return $this->hasMany(Book::className(), ['book_type_id' => 'id']);
+    }
+    
+    public static function getList(){
+        return ArrayHelper::map(self::find()->all(),'id','title');
     }
 }

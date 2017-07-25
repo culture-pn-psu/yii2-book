@@ -4,6 +4,11 @@ namespace culturePnPsu\book\models;
 
 use Yii;
 
+use mongosoft\file\UploadBehavior;
+use yii\behaviors\BlameableBehavior;
+use yii\behaviors\TimestampBehavior;
+use yii\data\ActiveDataProvider;
+
 /**
  * This is the model class for table "book".
  *
@@ -31,6 +36,29 @@ class Book extends \yii\db\ActiveRecord
     {
         return 'book';
     }
+    
+    /**
+     * @inheritdoc
+     */
+    function behaviors()
+    {
+        return [
+            [
+                'class' => BlameableBehavior::className(),
+            ],
+            [
+                'class' => TimestampBehavior::className(),
+            ],
+            [
+                'class' => UploadBehavior::className(),
+                'attribute' => 'image',
+                //'attributeName' => 'file_name',
+                'scenarios' => ['insert', 'update'],
+                'path' => '@uploads/book/{id}',
+                'url' => '/uploads/book/{id}',
+            ],
+        ];
+    }
 
     /**
      * @inheritdoc
@@ -38,12 +66,13 @@ class Book extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'detail', 'book_type_id', 'image', 'status'], 'required'],
+            [['title', 'detail', 'book_type_id' ], 'required'],
             [['detail'], 'string'],
-            [['book_type_id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
+            [['book_type_id', 'number', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
             //[['create_date'], 'safe'],
-            [['title', 'image'], 'string', 'max' => 255],
+            [['title', 'author'], 'string', 'max' => 255],
             [['path'], 'string', 'max' => 100],
+            ['image', 'file', 'extensions' => 'png, jpg, pdf', 'on' => ['insert', 'update']],
             [['book_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => BookType::className(), 'targetAttribute' => ['book_type_id' => 'id']],
         ];
     }
@@ -57,6 +86,7 @@ class Book extends \yii\db\ActiveRecord
             'id' => Yii::t('book', 'ID'),
             'title' => Yii::t('book', 'Title'),
             'detail' => Yii::t('book', 'Detail'),
+            'author' => Yii::t('book', 'Author'),
             'book_type_id' => Yii::t('book', 'Book Type ID'),
             'path' => Yii::t('book', 'Path'),
             'image' => Yii::t('book', 'Image'),
@@ -75,5 +105,28 @@ class Book extends \yii\db\ActiveRecord
     public function getBookType()
     {
         return $this->hasOne(BookType::className(), ['id' => 'book_type_id']);
+    }
+    
+     public function getCreatedBy()
+    {
+        return $this->hasOne(\culturePnPsu\user\models\User::className(), ['id' => 'created_by']);
+    }
+    
+    public static function getForIndex($pageSize=8) {
+        $query = self::find();
+        $provider = new ActiveDataProvider([
+            'query' => $query,
+            'pagination' => [
+                'pageSize' => $pageSize,
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'created_at' => SORT_DESC,
+                    'title' => SORT_ASC,
+                ]
+            ],
+        ]);
+
+        return $provider;
     }
 }

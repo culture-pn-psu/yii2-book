@@ -18,8 +18,8 @@ class BookSearch extends Book
     public function rules()
     {
         return [
-            [['id', 'book_type_id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
-            [['title', 'detail', 'path', 'image'], 'safe'],
+            [['id', 'book_type_id', 'number', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by'], 'integer'],
+            [['title', 'author', 'detail', 'path', 'image'], 'safe'],
         ];
     }
 
@@ -61,6 +61,7 @@ class BookSearch extends Book
         $query->andFilterWhere([
             'id' => $this->id,
             'book_type_id' => $this->book_type_id,
+            'number' => $this->number,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'created_by' => $this->created_by,
@@ -69,6 +70,7 @@ class BookSearch extends Book
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'author', $this->author])
             ->andFilterWhere(['like', 'detail', $this->detail])
             ->andFilterWhere(['like', 'path', $this->path])
             ->andFilterWhere(['like', 'image', $this->image]);

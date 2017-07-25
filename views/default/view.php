@@ -24,23 +24,34 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'detail:ntext',
-            'book_type_id',
-            'path',
-            'image',
-            'status',
-            //'create_date',
-            'created_at',
-            'created_by',
-            'updated_at',
-            'updated_by',
-        ],
-    ]) ?>
-
+    
+    <div class="row">
+        <div class="col-sm-3 text-center">
+            <?=Html::img($model->getUploadUrl('image'),['style'=>'width:100%;','class'=>'img-thumbnail'])?>
+        </div>
+        <div class="col-sm-9">
+            <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    //'id',
+                    'title',
+                    'author',
+                    'number',
+                    'detail:html',
+                    [
+                        'attribute' => 'book_type_id',
+                        'value' => $model->bookType->title
+                    ],
+                    //'path',
+                    //'image',
+                    'status',
+                    //'create_date',
+                    'created_at:datetime',
+                    'created_by',
+                    'updated_at:datetime',
+                    'updated_by',
+                ],
+            ]) ?>
+        </div>
+    </div>
 </div>

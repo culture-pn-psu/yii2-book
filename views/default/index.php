@@ -26,7 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
 
-            'image',
+            //'image',
+            [
+                'attribute' => 'image',
+                'format' => 'html',
+                'contentOptions'=>['width'=>100],
+                'value' => function($model){
+                    return Html::img($model->getUploadUrl('image'),['width'=>'100']);
+                }
+            ],
             'title',
             //'detail:ntext',
             //'book_type_id',
@@ -38,7 +46,11 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'image',
             // 'status',
             'created_at:datetime',
-            'created_by',
+            //'created_by',
+            [
+                'attribute' => 'created_by',
+                'value' => 'createdBy.displayname'
+            ],
 
             // 'updated_at',
             // 'updated_by',
