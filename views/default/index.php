@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-<<<<<<< HEAD
+
             'image',
             'title',
             //'detail:ntext',
@@ -39,23 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'status',
             'created_at:datetime',
             'created_by',
-=======
-            'title',
-            //'detail:ntext',
-            'book_type_id',
-            'path',
-            // 'image',
-            // 'status',
-            //'create_date',
-            // [
-            //     'attribute'=> 'create_date',
-            //     'value'=>function($model){
-            //         return strtotime($model->create_date);
-            //     }
-            // ],
-             'created_at:datetime',
-            // 'created_by',
->>>>>>> dc4ca8ef25d66f3e569da4706965e7fe10578c53
+
             // 'updated_at',
             // 'updated_by',
 
