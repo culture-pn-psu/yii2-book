@@ -33,6 +33,11 @@ class DefaultController extends Controller
      * Lists all Book models.
      * @return mixed
      */
+    public function actions()
+    {
+        $this->layout = "main";
+    }
+    
     public function actionIndex()
     {
         $searchModel = new BookSearch();

@@ -72,7 +72,7 @@ class Book extends \yii\db\ActiveRecord
             //[['create_date'], 'safe'],
             [['title', 'author'], 'string', 'max' => 255],
             [['path'], 'string', 'max' => 100],
-            ['image', 'file', 'extensions' => 'png, jpg, pdf', 'on' => ['insert', 'update']],
+            ['image', 'file', 'extensions' => 'png, jpg', 'on' => ['insert', 'update']],
             [['book_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => BookType::className(), 'targetAttribute' => ['book_type_id' => 'id']],
         ];
     }

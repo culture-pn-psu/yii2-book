@@ -35,8 +35,8 @@ use firdows\mkeditor\CKEditor;
 
     <?= $form->field($model, 'book_type_id')->dropDownList(BookType::getList(),['prompt'=>Yii::t('culture','Select')]) ?>
     
-    
-    <?=Html::img($model->getUploadUrl('image'),['style'=>'width:100;','class'=>'img-thumbnail'])?>
+    <?=$model->image?>
+    <?php //echo Html::img($model->getUploadUrl('image'),['style'=>'width:100;','class'=>'img-thumbnail'])?>
     
     <div class="well well-small">
         <?= $form->field($model, 'image')->widget(FileInput::classname(), [
