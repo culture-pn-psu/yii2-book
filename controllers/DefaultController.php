@@ -37,6 +37,14 @@ class DefaultController extends Controller
     {
         $searchModel = new BookSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
+        // $models = Book::find()->all();
+        // foreach($models as $model){
+        //     $model->created_at = strtotime($model->create_date);
+        //     $model->save();
+        // }
+        
+        
 
         return $this->render('index', [
             'searchModel' => $searchModel,
