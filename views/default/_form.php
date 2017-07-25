@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status')->textInput() ?>
 
-    <?= $form->field($model, 'create_date')->textInput() ?>
+   
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 

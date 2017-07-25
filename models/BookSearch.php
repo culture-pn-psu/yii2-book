@@ -62,7 +62,11 @@ class BookSearch extends Book
             'id' => $this->id,
             'book_type_id' => $this->book_type_id,
             'status' => $this->status,
+<<<<<<< HEAD
             
+=======
+            //'create_date' => $this->create_date,
+>>>>>>> dc4ca8ef25d66f3e569da4706965e7fe10578c53
             'created_at' => $this->created_at,
             'created_by' => $this->created_by,
             'updated_at' => $this->updated_at,
