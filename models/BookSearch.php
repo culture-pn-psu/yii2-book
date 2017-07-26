@@ -61,7 +61,6 @@ class BookSearch extends Book
         $query->andFilterWhere([
             'id' => $this->id,
             'book_type_id' => $this->book_type_id,
-            'number' => $this->number,
             'status' => $this->status,
             'created_at' => $this->created_at,
             'created_by' => $this->created_by,
@@ -73,6 +72,7 @@ class BookSearch extends Book
             ->andFilterWhere(['like', 'author', $this->author])
             ->andFilterWhere(['like', 'detail', $this->detail])
             ->andFilterWhere(['like', 'path', $this->path])
+            ->andFilterWhere(['>=', 'number', $this->number])
             ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;

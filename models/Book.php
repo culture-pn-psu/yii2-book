@@ -3,7 +3,7 @@
 namespace culturePnPsu\book\models;
 
 use Yii;
-
+use yii\helpers\ArrayHelper;
 use mongosoft\file\UploadBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
@@ -130,4 +130,40 @@ class Book extends \yii\db\ActiveRecord
 
         return $provider;
     }
+    
+    
+    public static function itemsAlias($key) {
+        $items = [
+            'status' => [
+                0 => Yii::t('culture/book', 'Draft'),
+                1 => Yii::t('culture/book', 'Publish'),
+            ]
+        ];
+        return ArrayHelper::getValue($items, $key, []);
+    }
+
+    public function getStatusLabel() {
+        $status = ArrayHelper::getValue($this->getItemStatus(), $this->status);
+        $status = ($this->status === NULL) ? ArrayHelper::getValue($this->getItemStatus(), 0) : $status;
+        switch ($this->status) {
+            case '0' :
+            case NULL :
+                $str = '<span class="label label-warning">' . $status . '</span>';
+                break;
+            case '1' :
+                $str = '<span class="label label-primary">' . $status . '</span>';
+                $str.= ($this->staff_id)?' โดย '.$this->staff->displayname:"";
+                break;
+            default :
+                $str = $status;
+                break;
+        }
+
+        return $str;
+    }
+
+    public static function getItemStatus() {
+        return self::itemsAlias('status');
+    }
+    
 }
