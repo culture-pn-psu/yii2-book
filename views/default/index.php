@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\StringHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel culturePnPsu\book\models\BookSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -34,7 +35,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     return Html::img($model->getUploadUrl('image'),['width'=>'100']);
                 }
             ],
-            'title',
+            [
+                'attribute' => 'title',
+                'format' => 'html',
+                'value' => function($model){
+                    return $model->title."<br/><small>".$model->getAttributeLabel('detail')." ".StringHelper::truncate(strip_tags($model->detail),80)."</small>";
+                }
+            ],
             'author',
             'number',
             //'detail:ntext',
