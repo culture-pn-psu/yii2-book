@@ -9,7 +9,6 @@ use yii\widgets\Pjax;
 
 $this->title = Yii::t('culture/book', 'Books');
 $this->params['breadcrumbs'][] = $this->title;
-echo Yii::$app->language = 'th';
 ?>
 <div class="book-index">
 
@@ -24,7 +23,6 @@ echo Yii::$app->language = 'th';
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             //'id',
 
             //'image',
@@ -37,6 +35,8 @@ echo Yii::$app->language = 'th';
                 }
             ],
             'title',
+            'author',
+            'number',
             //'detail:ntext',
             //'book_type_id',
             [
