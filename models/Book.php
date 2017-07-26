@@ -93,10 +93,10 @@ class Book extends \yii\db\ActiveRecord
             'image' => Yii::t('culture/book', 'Image'),
             'status' => Yii::t('culture/book', 'Status'),
             //'create_date' => Yii::t('culture/book', 'Create Date'),
-            'created_at' => Yii::t('culture/book', 'Created At'),
-            'created_by' => Yii::t('culture/book', 'Created By'),
-            'updated_at' => Yii::t('culture/book', 'Updated At'),
-            'updated_by' => Yii::t('culture/book', 'Updated By'),
+            'created_at' => Yii::t('culture', 'Created At'),
+            'created_by' => Yii::t('culture', 'Created By'),
+            'updated_at' => Yii::t('culture', 'Updated At'),
+            'updated_by' => Yii::t('culture', 'Updated By'),
         ];
     }
 
