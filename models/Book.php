@@ -87,6 +87,7 @@ class Book extends \yii\db\ActiveRecord
             'title' => Yii::t('culture/book', 'Title'),
             'detail' => Yii::t('culture/book', 'Detail'),
             'author' => Yii::t('culture/book', 'Author'),
+            'number' => Yii::t('culture/book', 'Number'),
             'book_type_id' => Yii::t('culture/book', 'Book Type ID'),
             'path' => Yii::t('culture/book', 'Path'),
             'image' => Yii::t('culture/book', 'Image'),
