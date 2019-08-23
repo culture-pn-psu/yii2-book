@@ -12,12 +12,14 @@ use yii\helpers\StringHelper;
             <?= Html::img($model->getUploadUrl('image'), ['width' => '100%', 'class' => 'center-block img-responsive']) ?>
         </div>
         <div class='text-left' style="margin:5px 5px 15px 5px;">
-            <div class='text-left' style="height:52px;width: 100%;overflow: hidden;">
+            <div class='text-left' style="height:53px;width: 100%;overflow: hidden;">
                 <?= Html::tag('h4', StringHelper::truncate($model->title, 50), ['style' => 'margin-bottom:0px;']) ?>
             </div>
-            <small class='text-muted' style="height:55px;width: 100%;overflow: hidden;">
-                <?= StringHelper::truncate(strip_tags($model->detail), 80); ?>
-            </small>
+            <div class='text-left' style="height:52px;width: 100%;overflow: hidden;">
+                <small class='text-muted'>
+                    <?= StringHelper::truncate(strip_tags($model->detail), 80); ?>
+                </small>
+            </div>
             <?php if (isset($model->number)): ?>
                 <br/><small class='text-muted'><?= Yii::t('culture/book', '{number} Pages', ['number' => $model->number]); ?></small>
             <?php endif; ?>
